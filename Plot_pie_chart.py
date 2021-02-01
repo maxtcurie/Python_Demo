@@ -17,7 +17,7 @@ sizes = [2.7, 0.17, 0]
 neo=4.2-np.sum(sizes)
 sizes = [0.52, 0.17, neo]
 sizes=sizes/np.sum(sizes)
-explode = (0.1, 0, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
+explode = (0.1, 0, 0)  # only "explode" the 2nd slice (i.e. 'Hogs')
 
 fig1, ax1 = plt.subplots()
 ax1.pie(sizes, explode=explode, labels=labels, autopct='%1.1f%%',
