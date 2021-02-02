@@ -6,6 +6,7 @@ fontsize0=12
 
 #subplot
 #refers to https://youtu.be/XFZRVnP-MTU
+#https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.subplot.html
 x=np.arange(0,6,0.001)
 fig, ax=plt.subplots(nrows=2,ncols=2,sharex=True) 
 			#nrows is the total rows

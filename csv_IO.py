@@ -50,6 +50,7 @@ df.to_csv(filename+'.csv',index=False)
 #***start of reading the csv file using pandas*****************
 print("reading the csv using lib pandas")
 data=pd.read_csv(filename+'.csv')  	#data is a dataframe. 
+        #pd.read_csv(csvfile_name).drop(['unnamed 0'],axis=1) for dropping the index
 x=data['x']
 y=data['y']
 print(data)
