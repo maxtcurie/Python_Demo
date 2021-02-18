@@ -7,10 +7,9 @@ import pandas as pd
 width=0.5
 labels = ['1', '2']
 #colors=['orange','blue']
-#sizes = [2.37, 0.17]#, 0]	
-#error = [0.32,0.01]#,0]
-sizes = [4.37, 0.17]#, 0]
-error = [0.56,0.01]#,0]
+sizes = [2.37, 0.17]#, 0]	
+error = [0.32,0.01]#,0]
+
 total_trans=2.1
 trans_error=0.5
 #neo=total_trans-np.sum(sizes)
