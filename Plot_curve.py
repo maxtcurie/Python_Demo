@@ -17,12 +17,18 @@ plt.clf()
 
 plt.figure(figsize=(Width,Height),dpi=96)
 
-plt.plot(x,y1,'r:',label='sin')   #red dot='r.', red line='r-', red dashline='r--'...
+plt.plot(x,y1,'r:',label='sin',alpha=0.2)   #red dot='r.', red line='r-', red dashline='r--'...
+#alpha is transparency, 1 is sold, 0 is transparent
 plt.plot(x,y2,'b:',label='cos')
 plt.xlim(-1,6)	#set the limit for the x axis
 plt.ylim(-2,1.5)	#set the limit for the y axis
 plt.xlabel(r'$x$',fontsize=10)
 plt.ylabel(r'$sin(x)$',fontsize=10)
+#vertical line
+plt.axvline(1.,color='red',alpha=0.2)
+#horizontal line
+plt.axhline(1.,color='green',alpha=0.2)
+
 plt.title('Collisional Dependence',fontsize=20)
 plt.legend()	#show the legend
 plt.show()		#show the plot
