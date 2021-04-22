@@ -56,3 +56,14 @@ file.write(line0)
 file.write(line1)
 file.write(line2)
 file.write(line3)
+
+'''
+#From https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
+original_stdout = sys.stdout # Save a reference to the original standard output
+with open('output.txt', 'w') as f:
+	sys.stdout = f # Change the standard output to the file we created.
+	#From: https://stackoverflow.com/questions/19124601/pretty-print-an-entire-pandas-series-dataframe
+	with pd.option_context('display.max_rows', None, 'display.max_columns', None):  # more options can be specified also
+		print(properties)
+	sys.stdout = original_stdout # Reset the standard output to its original value
+'''

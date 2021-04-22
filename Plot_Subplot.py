@@ -25,6 +25,7 @@ ax[1,0].set_ylabel('sin(x)^2',fontsize=fontsize0)
 ax[1,1].plot(x,np.cos(x)**2.,label='cos(x)^2')
 ax[1,1].set_xlabel('x',fontsize=fontsize0)
 ax[1,1].set_ylabel('cos(x)^2',fontsize=fontsize0)
+ax[1,1].set_xlim([0, 5])
 #for i in range(2):
 #	for j in range(2):
 #		ax[i,j].legend()
