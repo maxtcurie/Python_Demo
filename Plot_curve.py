@@ -28,7 +28,8 @@ plt.ylabel(r'$sin(x)$',fontsize=10)
 plt.axvline(1.,color='red',alpha=0.2)
 #horizontal line
 plt.axhline(1.,color='green',alpha=0.2)
-
+plt.yscale("log") #log scale for y axis
+plt.grid()
 plt.title('Collisional Dependence',fontsize=20)
 plt.legend()	#show the legend
 plt.show()		#show the plot
