@@ -1,9 +1,8 @@
 
 
-
+Function 
 
 FFT_function_time(function,time,plot=False)
-
 frequency_sort,amplitude_frequency_sort,phase_frequency_sort
 
 
