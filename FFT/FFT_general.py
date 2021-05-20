@@ -169,8 +169,8 @@ def test_functions(function_num=1):
     
     time = np.arange(N) / fs
     if function_num==1:
-        amp = 2*np.sqrt(2)
-        freq = 1234.0
+        amp = 3
+        freq = 1000.0
         np.random.seed(1234)
         noise_power = 0.001 * fs / 2
         function = amp*np.sin(2*np.pi*freq*time)
