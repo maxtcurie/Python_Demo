@@ -2,10 +2,12 @@ from FFT_general import FFT_function_time
 from FFT_general import FFT_sum
 from FFT_general import FFT_interp
 from FFT_general import spectral_density
-from FFT_general import FFT_function_time
-from FFT_general import FFT_function_time
+from FFT_general import spectral_density_sum
+from FFT_general import spectral_density_interp
+from FFT_general import test_functions
+from FFT_general import time_average
 
-
+#Video about Pitfalls in FFT: https://youtu.be/jZVekQ2ZDXQ
 
 #**********************************************
 # this function does FFT(Fast Fourier transform) for function of time (uniform or ununiform)
@@ -44,7 +46,7 @@ f, Pxx_den=
 
 #**********************************************
 # this fucntion sum the amplitude from the output of spectral density
-# input the frequency, amplitude(freq), 
+# input the frequency, amplitude(freq)/unit[ amp/(Hz)^0.5 ], 
 #           lower bound of frequency to be sum, 
 #           upper bound of frequency to be sum, 
 #           Change to True if one wants to sum over the full frequency
@@ -69,4 +71,9 @@ function, time=\
 #output test_functions(1): 3.*np.sin(2*np.pi*1000.*time)+noise
 #       test_functions(2): 1+np.exp(-1.j * omega * time -3.j)+0.5*np.exp(+1.j * 2*omega * time-1.j), where omega=2.*np.pi*200
 #       test_functions(3): g(freq) is gaussian centered around 200
+#**********************************************
+
+#**********************************************
+func_avg, func_std=\
+    time_average(function,time)
 #**********************************************

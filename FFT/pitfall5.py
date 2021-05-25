@@ -3,7 +3,9 @@ import numpy as np
 from FFT_general import FFT_function_time
 from FFT_general import FFT_sum
 from FFT_general import sort_x_f
-from Test_functions import test_functions
+from FFT_general import test_functions
+
+#Video about Pitfalls in FFT: https://youtu.be/jZVekQ2ZDXQ
 
 function, time=test_functions(function_num=3)
 

@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Video about Pitfalls in FFT: https://youtu.be/jZVekQ2ZDXQ
 
 fs = 10e4
 N = 1000

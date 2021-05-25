@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+#Video about Pitfalls in FFT: https://youtu.be/jZVekQ2ZDXQ
 
 a=-2-1.j
 print('a='+str(a))

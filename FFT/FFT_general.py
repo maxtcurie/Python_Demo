@@ -35,7 +35,7 @@ def FFT_function_time(function,time,plot=False):
     dt_min=np.mean(dt)
     
     if abs(np.std(dt))>=np.min(dt)*0.01:
-        print('time step is NOT uniform. interperlating')
+        #print('time step is NOT uniform. interperlating')
         uni_time = np.linspace(min(time),max(time),int(abs((max(time)-min(time))/dt_min)*1.5)) #uniform time
         uni_function = np.interp(uni_time,time,function)
     else:
@@ -44,8 +44,8 @@ def FFT_function_time(function,time,plot=False):
 
 
     timestep=np.mean(abs(uni_time[1:]-uni_time[:-1]))
-    print('avg_dt='+str(np.mean(abs(uni_time[1:]-uni_time[:-1]))))
-    print('std_dt='+str(np.std(abs(uni_time[1:]-uni_time[:-1]))))
+    #print('avg_dt='+str(np.mean(abs(uni_time[1:]-uni_time[:-1]))))
+    #print('std_dt='+str(np.std(abs(uni_time[1:]-uni_time[:-1]))))
     norm=1./float(len(uni_time))  #normalizing factor
     amplitude_complex = np.fft.fft(uni_function)
     #print(str(time.shape[-1]))
@@ -105,7 +105,7 @@ def spectral_density(function,time,percent=0.5,window_for_FFT='hann',plot=False)
     dt_min=np.mean(dt)
 
     if abs(np.std(dt))>=np.min(dt)*0.01:
-        print('time step is NOT uniform. interperlating')
+        #print('time step is NOT uniform. interperlating')
         uni_time = np.linspace(min(time),max(time),int(abs((max(time)-min(time))/dt_min)*1.5)) #uniform time
         uni_function = np.interp(uni_time,time,function)
     else:
@@ -114,8 +114,8 @@ def spectral_density(function,time,percent=0.5,window_for_FFT='hann',plot=False)
 
 
     fs=1./np.mean(abs(uni_time[1:]-uni_time[:-1]))
-    print('avg_dt='+str(np.mean(abs(uni_time[1:]-uni_time[:-1]))))
-    print('std_dt='+str(np.std(abs(uni_time[1:]-uni_time[:-1]))))
+    #print('avg_dt='+str(np.mean(abs(uni_time[1:]-uni_time[:-1]))))
+    #print('std_dt='+str(np.std(abs(uni_time[1:]-uni_time[:-1]))))
     #f, Pxx_den = signal.welch(uni_function, fs, nperseg=len(uni_function), window=window_for_FFT) #, scaling='spectrum')
 
     f, Pxx_den = signal.welch(uni_function, fs, nperseg=int(percent*len(uni_function)), window=window_for_FFT,return_onesided=False, scaling='density')
@@ -147,7 +147,6 @@ def spectral_density_sum(f,amp_f,frequency_min,frequency_max,frequency_all):
     for i_f in range(len(f)):
         if frequency_min<=f[i_f] and f[i_f]<=frequency_max and (i_f-1)>=0:
             sum0_TEMP=sum0_TEMP+abs(amp_f[i_f])**2.*abs(f[i_f]-f[i_f-1])
-            sum0_list.append(sum0_TEMP)
 
     sum0=(sum0_TEMP)**0.5
     sum0_error=0.
@@ -192,6 +191,10 @@ def test_functions(function_num=1):
                 function = mode*np.exp(-1.j * omega * time )
             else:
                 function += mode*np.exp(-1.j * omega * time )
+    elif function_num==4: 
+        omega=2.*np.pi*200
+        function=np.exp(-1.j * omega * time -3.j)+0.5*np.exp(+1.j * 2*omega * time-1.j)
+
     if 0==1:
         plt.clf()
         plt.plot(time,function)
@@ -200,6 +203,26 @@ def test_functions(function_num=1):
     return function, time
 
 
+def time_average(function,time):
+    time=np.array(time)
+    time,function=sort_x_f(time,function)
+
+    dt=time[1:]-time[:-1]
+    dt_min=np.mean(dt)
+    
+    if abs(np.std(dt))>=np.min(dt)*0.01:
+        print('time step is NOT uniform. interperlating')
+        uni_time = np.linspace(min(time),max(time),int(abs((max(time)-min(time))/dt_min)*1.5)) #uniform time
+        uni_function = np.interp(uni_time,time,function)
+    else:
+        uni_time=time
+        uni_function=function
+    uni_function=abs(uni_function)
+    func_avg=np.mean(uni_function)
+    func_std=np.std (uni_function)
+    return func_avg, func_std
+
+'''
 #*********Demo function****************
 timestep0=0.00002
 time1 = np.arange(0.,2.,timestep0)
@@ -224,7 +247,7 @@ function=1.+np.exp(-1.j * omega * time -3.j)+0.5*np.exp(+1.j * 2*omega * time-1.
 #uni_function = np.interp(uni_time,time,function)
 
 
-'''
+
 #*********Demo function****************
 
 frequency,amplitude_frequency,amplitude_growth = FFT_function_time(function,time,plot=True)
