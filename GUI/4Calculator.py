@@ -1,8 +1,10 @@
-
 import tkinter as tk
 
 #From: https://youtu.be/YXPyB4XeYLA
 #      From 39:07 to 1:18:14
+#SOurce code: https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
+
+
 root=tk.Tk()
 root.title('Simple calculator')
 
@@ -10,22 +12,115 @@ root.title('Simple calculator')
 Input_box=tk.Entry(root, width=35,borderwidth=5)
 Input_box.grid(row=0,column=0,columnspan=3, padx=10,pady=10)
 
+def button_click(number):
+	#get the content in the current box
+	current_number = Input_box.get()
+	#Delete the current content in the input box
+	Input_box.delete(0, tk.END)
+	#Add the new content to the input box
+	Input_box.insert(0, str(current_number) + str(number))
+
+
+def button_clear():
+	Input_box.delete(0, tk.END)
+
 def button_add():
-	i=float(Input_box.get())
-	myLable_TEMP=tk.Label(root, text=str(i)+'^2='+str(i**2.))
-	myLable_TEMP.pack()
+	first_number = Input_box.get()
+	#global varible
+	global f_num
+	global math
+	math = "addition"
+	f_num = int(first_number)
+	Input_box.delete(0, tk.END)
 
-button_number_list=[]
+def button_equal():
+	second_number = Input_box.get()
+	Input_box.delete(0, tk.END)
+	
+	if math == "addition":
+		Input_box.insert(0, f_num + int(second_number))
 
-for i in range(10):
-	button_TEMP=tk.Button(root, text=str(i), padx=40, pady=20, command=button_add)
-#crea the label
-myLable=tk.Label(root, text='Do the square by clicking th button')
-myLable.pack()
+	if math == "subtraction":
+		Input_box.insert(0, f_num - int(second_number))
 
-#creat button
-myButton1=tk.Button(root, text='Click me',command=myClick)
-myButton1.pack()
+	if math == "multiplication":
+		Input_box.insert(0, f_num * int(second_number))
+
+	if math == "division":
+		Input_box.insert(0, f_num / int(second_number))
+
+	
+
+def button_subtract():
+	first_number = Input_box.get()
+	#first number -- math
+	global f_num
+	#operation varible -- math
+	global math
+	math = "subtraction"
+	f_num = int(first_number)
+	Input_box.delete(0, tk.END)
+
+def button_multiply():
+	first_number = Input_box.get()
+	global f_num
+	global math
+	math = "multiplication"
+	f_num = int(first_number)
+	Input_box.delete(0, tk.END)
+
+def button_divide():
+	first_number = Input_box.get()
+	global f_num
+	global math
+	math = "division"
+	f_num = int(first_number)
+	Input_box.delete(0, tk.END)
+
+
+# Define Buttons
+
+button_1 = tk.Button(root, text="1", padx=40, pady=20, command=lambda: button_click(1))
+button_2 = tk.Button(root, text="2", padx=40, pady=20, command=lambda: button_click(2))
+button_3 = tk.Button(root, text="3", padx=40, pady=20, command=lambda: button_click(3))
+button_4 = tk.Button(root, text="4", padx=40, pady=20, command=lambda: button_click(4))
+button_5 = tk.Button(root, text="5", padx=40, pady=20, command=lambda: button_click(5))
+button_6 = tk.Button(root, text="6", padx=40, pady=20, command=lambda: button_click(6))
+button_7 = tk.Button(root, text="7", padx=40, pady=20, command=lambda: button_click(7))
+button_8 = tk.Button(root, text="8", padx=40, pady=20, command=lambda: button_click(8))
+button_9 = tk.Button(root, text="9", padx=40, pady=20, command=lambda: button_click(9))
+button_0 = tk.Button(root, text="0", padx=40, pady=20, command=lambda: button_click(0))
+button_add = tk.Button(root, text="+", padx=39, pady=20, command=button_add)
+button_equal = tk.Button(root, text="=", padx=91, pady=20, command=button_equal)
+button_clear = tk.Button(root, text="Clear", padx=79, pady=20, command=button_clear)
+
+button_subtract = tk.Button(root, text="-", padx=41, pady=20, command=button_subtract)
+button_multiply = tk.Button(root, text="*", padx=40, pady=20, command=button_multiply)
+button_divide = tk.Button(root, text="/", padx=41, pady=20, command=button_divide)
+
+# Put the buttons on the screen
+
+button_1.grid(row=3, column=0)
+button_2.grid(row=3, column=1)
+button_3.grid(row=3, column=2)
+
+button_4.grid(row=2, column=0)
+button_5.grid(row=2, column=1)
+button_6.grid(row=2, column=2)
+
+button_7.grid(row=1, column=0)
+button_8.grid(row=1, column=1)
+button_9.grid(row=1, column=2)
+
+button_0.grid(row=4, column=0)
+button_clear.grid(row=4, column=1, columnspan=2)
+button_add.grid(row=5, column=0)
+button_equal.grid(row=5, column=1, columnspan=2)
+
+button_subtract.grid(row=6, column=0)
+button_multiply.grid(row=6, column=1)
+button_divide.grid(row=6, column=2)
+
 
 
 #creat the GUI
