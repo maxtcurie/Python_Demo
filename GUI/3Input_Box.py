@@ -15,7 +15,7 @@ def myClick():
 	myLable_TEMP=tk.Label(root, text=str(i)+'^2='+str(i**2.))
 	myLable_TEMP.pack()
 
-#crea the label
+#creat the label
 myLable=tk.Label(root, text='Do the square by clicking th button')
 myLable.pack()
 

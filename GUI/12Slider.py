@@ -1,5 +1,5 @@
 import tkinter as tk
-from tkinter import filedialog 
+
 #From: https://youtu.be/YXPyB4XeYLA
 #      From 2:56:09 to 3:08:25
 #Source code: https://github.com/flatplanet/Intro-To-TKinter-Youtube-Course
