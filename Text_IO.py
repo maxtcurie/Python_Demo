@@ -57,6 +57,15 @@ file.write(line1)
 file.write(line2)
 file.write(line3)
 
+
+
+txt = "     banana     "
+x = txt.strip()
+print(x)
+
+y=float('          1.0000000000')
+print(y)
+
 '''
 #From https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
 original_stdout = sys.stdout # Save a reference to the original standard output
