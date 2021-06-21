@@ -156,7 +156,7 @@ def spectral_density_sum(f,amp_f,frequency_min,frequency_max,frequency_all):
 def spectral_density_interp(frequency,amplitude_frequency,total_len_scale=1.5):
     frequency_sort,amplitude_frequency_sort=sort_x_f(frequency,amplitude_frequency)
     uni_frequency_sort=np.linspace(np.min(frequency_sort),np.max(frequency_sort),int(len(frequency_sort)*total_len_scale))
-    uni_amplitude_frequency_sort = np.interp(uni_frequency_sort,frequency_sort,amplitude_frequency_sort)
+    uni_amplitude_frequency_sort = (np.interp(uni_frequency_sort,frequency_sort,amplitude_frequency_sort**2.))**0.5
     return uni_frequency_sort,uni_amplitude_frequency_sort
 
 def gaussian_max(x, amplitude, mean, stddev):

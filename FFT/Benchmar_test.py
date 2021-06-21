@@ -24,7 +24,6 @@ plt.plot(time, abs(function))
 plt.show()
 
 
-
 f_FFT,amplitude_FFT,phase_FFT=\
     FFT_function_time(function,time,plot=False) 
 
