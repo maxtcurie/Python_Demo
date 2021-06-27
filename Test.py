@@ -1,17 +1,14 @@
-import numpy as np
-from astropy import modeling
-import matplotlib.pyplot as plt
-from scipy import optimize
 
-def b(x):
-	mref=\
-2.
-	return mref*x
-def a(x):
-	y=b(x)*2.
-	return x*y
+nmax=4
+n_list=[]
 
-print(a(1.))
-Zeff=np.sqrt(2.35)
-print((Zeff-1)*0.1)
-print(10*1.5)
+for n0 in range(nmax):
+	for n1 in range(nmax):
+		for n2 in range(nmax):
+			if n0+2*n1-3*n2==0:
+				n_list.append([n0,n1,n2])
+
+
+
+print(n_list)
+print(lne(n_list))

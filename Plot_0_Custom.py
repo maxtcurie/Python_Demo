@@ -20,12 +20,26 @@ plt.figure(figsize=(Width,Height),dpi=96)
 plt.plot(x,y1,'r:',label='sin',alpha=0.2)   #red dot='r.', red line='r-', red dashline='r--'...
 #alpha is transparency, 1 is sold, 0 is transparent
 plt.plot(x,y2,'b:',label='cos')
+
 #plt.xlim(-1,6)	#set the limit for the x axis
 #plt.ylim(-2,1.5)	#set the limit for the y axis
 
-plt.xlabel('x lable',fontsize=10)
-plt.ylabel(r'$sin(x)$',fontsize=10)
+#https://matplotlib.org/stable/api/matplotlib_configuration_api.html
+#https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.gca.html
+#https://stackoverflow.com/questions/21321670/how-to-change-fonts-in-matplotlib-python
+#https://matplotlib.org/stable/tutorials/introductory/customizing.html
+import matplotlib
+fontname='Comic Sans MS'
+font = {'family' : fontname,
+        'weight' : 'bold',
+        'size'   : 20}
+matplotlib.rc('font', **font)
 
+plt.xticks(**font)
+plt.yticks(**font)
+plt.xlabel('x lable',**font)
+plt.ylabel('sin(x)',**font)
+plt.title('Collisional Dependence',**font)
 
 #vertical line
 plt.axvline(1.,color='red',alpha=0.2)
@@ -33,7 +47,6 @@ plt.axvline(1.,color='red',alpha=0.2)
 plt.axhline(1.,color='green',alpha=0.2)
 plt.yscale("log") #log scale for y axis
 plt.grid()
-plt.title('Collisional Dependence')
 plt.legend()	#show the legend
 plt.show()		#show the plot
 plt.savefig('Output_plot.png')#save the 

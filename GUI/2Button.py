@@ -19,6 +19,7 @@ myLabel2=tk.Label(root,text='Label1')
 #creat button
 myButton1=tk.Button(root, text='Click me',\
 					command=myClick,\
+					#command=lambda: myClick(x)
 					#to execute the command after the click of this button
 					#no () 
 					padx=50, pady=10,\
