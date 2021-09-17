@@ -8,10 +8,20 @@ fontsize0=12
 #refers to https://youtu.be/XFZRVnP-MTU
 #https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.subplot.html
 x=np.arange(0,6,0.001)
+
 fig, ax=plt.subplots(nrows=2,ncols=2,sharex=True) 
 			#nrows is the total rows
 			#ncols is the total columns
 			#sharex true means the xaxies will be shared
+(nr,nc)=np.shape(ax)
+for i in range(nr):
+    for j in range(nc):
+        if 1==0:#if i!=1:
+            ax[i,j].set_xticklabels([])
+        if j!=0:
+            ax[i,j].set_yticklabels([])
+
+
 ax[0,0].plot(x,np.sin(x),label='sin(x)')
 #ax[0,0].set_xlabel('x')
 ax[0,0].set_ylabel('sin(x)',fontsize=fontsize0)
@@ -31,7 +41,6 @@ ax[1,1].set_xlim([0, 5])
 #		ax[i,j].legend()
 
 #for no space between plots: https://stackoverflow.com/questions/20057260/how-to-remove-gaps-between-subplots-in-matplotlib/45487279
-#plt.subplots_adjust(wspace=0, hspace=0)
+plt.subplots_adjust(wspace=0, hspace=0)
 
-plt.tight_layout()
 plt.show()
