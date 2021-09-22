@@ -13,12 +13,12 @@ y=np.sin(x)					#y=sin(x)
 
 #****start of writting the csv file using csv********************
 print("writting the csv using lib csv")
-with open(filename+'.csv', 'w') as csvfile:		#clear all and then write a row
+with open(filename+'.csv', 'w', newline='') as csvfile:		#clear all and then write a row
     data = csv.writer(csvfile, delimiter=',')
     data.writerow(['x','y'])
 csvfile.close()
 
-with open(filename+'.csv', 'a') as csvfile:	#adding a row
+with open(filename+'.csv', 'a', newline='') as csvfile:	#adding a row
     data = csv.writer(csvfile, delimiter=',')
     for i in range(len(x)):	#loop through x
         data.writerow([x[i],y[i]])

@@ -16,8 +16,9 @@ Height=3*2
 plt.clf()
 
 plt.figure(figsize=(Width,Height),dpi=96)
+plt.plot(x,y1,color='r',label='sin', linewidth=20, alpha=0.2)   #red dot='r.', red line='r-', red dashline='r--'...
 
-plt.plot(x,y1,'r:',label='sin',alpha=0.2)   #red dot='r.', red line='r-', red dashline='r--'...
+plt.plot(x,y1,'r:',label='sin', alpha=0.2)   #red dot='r.', red line='r-', red dashline='r--'...
 #alpha is transparency, 1 is sold, 0 is transparent
 plt.plot(x,y2,'b:',label='cos')
 #plt.xlim(-1,6)	#set the limit for the x axis

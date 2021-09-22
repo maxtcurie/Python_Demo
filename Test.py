@@ -3,6 +3,9 @@ import matplotlib
 import matplotlib.pyplot as plt
 import pandas as pd
 
-name_list=['099']
-plt.title(r'$q=$'+name_list[0][0]+'.'+name_list[0][1:]+r'$q_0$')
+f_min=10
+f_max=130
+
+plt.plot(np.arange(0,1.2,(1.2/1000)),[f_min]*1000, color="purple", label='Frequency boundary')
+plt.axhline(f_max, color="purple")
 plt.show()
