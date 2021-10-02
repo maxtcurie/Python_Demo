@@ -34,7 +34,11 @@ par2.spines["right"].set_visible(True)
 
 p1, = host.plot(x, y1, "b-", label="y1")
 p2, = par1.plot(x, y2, "r-", label="y2")
-p3, = par2.plot(x, y3, "g-", label="y3")
+#python don't like scatter plot used as line
+par2.scatter(x, y3, label="y3")
+p3, = par2.plot([0], [0], "g-", label="y3")
+
+
 
 host.set_xlim(np.min(x), np.max(x))
 host.set_ylim(0, np.max(y1)*1.2)

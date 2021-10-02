@@ -66,6 +66,29 @@ print(x)
 y=float('          1.0000000000')
 print(y)
 
+
+#get the file as array:
+
+# with is like your try .. finally block in this case
+with open('out_array.txt', 'r') as file:
+    # read a list of lines into data
+    data = file.readlines()
+
+# now change the 2nd line, note that you have to add a newline
+data[1] = '0\n'
+
+# and write everything back
+with open('out_array2.txt', 'w') as file:
+    file.writelines( data )
+
+
+import numpy as np
+x=np.arange(0,3,0.01)
+f = open('out_array.txt','w')
+f.write('# 1.x 2.sin(x) 3.cos(x)\n#\n')
+np.savetxt(f,np.column_stack((x, np.sin(x), np.cos(x) )))
+f.close()
+
 '''
 #From https://stackabuse.com/writing-to-a-file-with-pythons-print-function/
 original_stdout = sys.stdout # Save a reference to the original standard output
