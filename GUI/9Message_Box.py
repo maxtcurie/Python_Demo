@@ -13,9 +13,9 @@ root.iconbitmap('./Physics_helper_logo.ico')
 
 def pop_up():
 	#A pop up message box: showinfo, showerror, askquestion, askokcancel, askyesno
-	#tk.messagebox.showinfo('This is popup', 'Hello!')
-	#tk.messagebox.showerror('This is popup', 'Warning!')
-	response = tk.messagebox.askyesno('This is popup', 'Yes or No')
+	#tk.messagebox.showinfo('Hello!','This is popup')
+	#tk.messagebox.showerror('Warning!','This is popup')
+	response = tk.messagebox.askyesno('Yes or No','This is popup')
 	tk.Label(root,text=response).pack()
 	# 				Title of the pop-up, Info in the popup
 
