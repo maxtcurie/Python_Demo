@@ -8,7 +8,9 @@ from tqdm import tqdm
 #Dataset can be download from: https://download.microsoft.com/download/3/E/1/3E1C3F21-ECDB-4869-8368-6DEBA77B919F/kagglecatsanddogs_3367a.zip
 
 REBUILD_DATA = False # set to true to one once, then back to false unless you want to change something in your training data.
+import time
 
+start = time.time()
 class DogsVSCats():
     IMG_SIZE = 50
     CATS = "C:/Dog_VS_Cat_Dataset/PetImages/Cat"
@@ -167,3 +169,6 @@ with torch.no_grad():
             correct += 1
         total += 1
 print("Accuracy: ", round(correct/total, 3))
+
+end = time.time()
+print(f"Runtime of the program is {end - start} s")

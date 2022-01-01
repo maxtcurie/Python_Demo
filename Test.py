@@ -1,22 +1,12 @@
+print('Hello, world!')
 import numpy as np
-import matplotlib
-import matplotlib.pyplot as plt
 import pandas as pd
 
+x_list=np.array([0.955]*5)
+m_list=np.array([5]*5)
+x_peak=0.195
+a=np.array([x_list, m_list,abs(x_list-x_peak)])
+b=a.transpose()
+df=pd.DataFrame(b,columns = ['x_list','m_list','peak_distance'])
 
-
-c = 4.2
-m = 200
-alpha = 1
-PHeat = 600
-T0 = 21
-
-x=np.arange(0,200,1)
-y=(T0 + (alpha *PHeat* x)/(c *m))
-#C to F conversion
-y=y*9./5.+32.
-
-plt.clf()
-plt.plot(x,y,label='Theory')
-plt.plot(x,y,label='Experiment')
-plt.show()
+print(df)
