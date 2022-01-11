@@ -1,0 +1,12 @@
+****************************
+*********python*************
+99980001
+Runtime of the program is 21.046943187713623 s
+****************************
+*********Cython************
+99980001
+Runtime of the program is 17.884111404418945 s
+****************************
+*Cython with type definition*
+99980001
+Runtime of the program is 0.001989603042602539 s
