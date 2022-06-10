@@ -15,3 +15,4 @@ pi=3.14159265359
 #For more on Format the output: https://www.python-course.eu/python3_formatted_output.php
 print('%.3f'%pi)  #pi with 3 digits
 
+print('%.3f, %.3f'%(pi,2.*pi))  #pi with 3 digits
