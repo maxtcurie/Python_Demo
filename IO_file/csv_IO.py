@@ -3,7 +3,7 @@ import pandas as pd
 import numpy as np
 
 
-filename='csv_demo'
+filename='./Input/csv_demo.csv'
 
 x=np.arange(0.,7.,0.001)	#x grid from 0 to 7 with resolution of 0.001
 y=np.sin(x)					#y=sin(x)
@@ -13,12 +13,12 @@ y=np.sin(x)					#y=sin(x)
 
 #****start of writting the csv file using csv********************
 print("writting the csv using lib csv")
-with open(filename+'.csv', 'w', newline='') as csvfile:		#clear all and then write a row
+with open(filename, 'w', newline='') as csvfile:		#clear all and then write a row
     data = csv.writer(csvfile, delimiter=',')
     data.writerow(['x','y'])
 csvfile.close()
 
-with open(filename+'.csv', 'a', newline='') as csvfile:	#adding a row
+with open(filename, 'a', newline='') as csvfile:	#adding a row
     data = csv.writer(csvfile, delimiter=',')
     for i in range(len(x)):	#loop through x
         data.writerow([x[i],y[i]])
@@ -27,7 +27,7 @@ csvfile.close()
 
 #****start of reading the csv file using csv********************
 print("reading the csv using lib csv")
-with open(filename+'.csv', newline='') as csvfile:		#clear all and then write a row
+with open(filename, newline='') as csvfile:		#clear all and then write a row
     data = csv.reader(csvfile, delimiter=',')	
     print(data)	#data is a object
     i = 0
@@ -44,12 +44,12 @@ csvfile.close()
 print("writting the csv using lib pandas")
 d = {'x':x,'y':y}
 df=pd.DataFrame(d, columns=['x','y'])	#construct the panda dataframe
-df.to_csv(filename+'.csv',index=False)
+df.to_csv(filename,index=False)
 #***end of writting the csv file using pandas*****************
 
 #***start of reading the csv file using pandas*****************
 print("reading the csv using lib pandas")
-data=pd.read_csv(filename+'.csv')  	#data is a dataframe. 
+data=pd.read_csv(filename)  	#data is a dataframe. 
         #pd.read_csv(csvfile_name).drop(['unnamed 0'],axis=1) for dropping the index
 x=data['x']
 y=data['y']

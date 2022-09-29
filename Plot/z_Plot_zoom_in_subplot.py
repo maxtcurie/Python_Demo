@@ -10,7 +10,7 @@ y=np.sin(x)*np.sin(100.*x)
 # Create main container
 fig = plt.figure()
 
-fig = plt.figure(figsize=(6, 5))
+fig = plt.figure(figsize=(3, 2))
 plt.subplots_adjust(bottom = 0., left = 0, top = 1., right = 1)
 
 # Create first axes, the top-left plot with green plot

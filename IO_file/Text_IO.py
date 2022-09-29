@@ -1,6 +1,6 @@
 
-f=open("demo_text.txt","r")  #name of the file "demo_text.txt",    "r" ==> read the text
-f1=open("demo_text.txt","r")
+f=open("./Input/demo_text.txt","r")  #name of the file "demo_text.txt",    "r" ==> read the text
+f1=open("./Input/demo_text.txt","r")
 
 
 #For reading the line and lines
@@ -51,7 +51,7 @@ print([word[i:i+3] for i in range(0, len(word), 3)])
 
 
 print("*******************")
-file=open("demo_text.txt","w")
+file=open("./Output/demo_text.txt","w")
 file.write(line0)
 file.write(line1)
 file.write(line2)
@@ -70,7 +70,7 @@ print(y)
 #get the file as array:
 
 # with is like your try .. finally block in this case
-with open('out_array.txt', 'r') as file:
+with open('./Output/out_array.txt', 'r') as file:
     # read a list of lines into data
     data = file.readlines()
 
@@ -78,13 +78,13 @@ with open('out_array.txt', 'r') as file:
 data[1] = '0\n'
 
 # and write everything back
-with open('out_array2.txt', 'w') as file:
+with open('./Output/out_array2.txt', 'w') as file:
     file.writelines( data )
 
 
 import numpy as np
 x=np.arange(0,3,0.01)
-f = open('out_array.txt','w')
+f = open('./Output/out_array.txt','w')
 f.write('# 1.x 2.sin(x) 3.cos(x)\n#\n')
 np.savetxt(f,np.column_stack((x, np.sin(x), np.cos(x) )))
 f.close()
