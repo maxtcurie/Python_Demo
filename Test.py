@@ -1,12 +1,26 @@
-print('Hello, world!')
-import numpy as np
-import pandas as pd
+import numpy as np 
 
-x_list=np.array([0.955]*5)
-m_list=np.array([5]*5)
-x_peak=0.195
-a=np.array([x_list, m_list,abs(x_list-x_peak)])
-b=a.transpose()
-df=pd.DataFrame(b,columns = ['x_list','m_list','peak_distance'])
-
-print(df)
+<<<<<<< HEAD
+a=np.random.rand(1000)
+D=np.sum(np.int64([a<0.7]))/1000.
+print(D)
+=======
+card_list=np.arange(1,13,1,dtype=int)
+print(card_list)
+#choose=[]
+total_score=0
+for i in range(5):
+    choose_tmp=np.random.choice(card_list)
+    print(total_score)
+    if choose_tmp==1:
+        total_score=total_score*5
+    elif 11<=choose_tmp or choose_tmp<=13:
+        total_score=0
+        break
+    else:
+        total_score=total_score+choose_tmp
+    print(np.argmin(abs(card_list-choose_tmp))
+    #card_list.pop(np.argmin(abs(card_list-choose_tmp))
+        
+#print(total_score)
+>>>>>>> 6e7c4e9873101c7f7d60519dc5b3b1b5dccdfba7

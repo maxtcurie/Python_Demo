@@ -6,3 +6,6 @@ onlyfiles = [f for f in listdir(path) if (isfile(join(path, f)) and f!='.gitigno
 print(onlyfiles)
 for i in onlyfiles:
     os.remove(join(path, i))
+
+#remove dir
+os.rmdir(path)

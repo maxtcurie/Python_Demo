@@ -1,6 +1,7 @@
 #custom names
 1*
 tmp/
+Test.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
