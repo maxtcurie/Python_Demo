@@ -21,3 +21,12 @@ print(df)
 
 df=data[((data.x < -1) | (data.x > 2))]
 print(df)
+
+
+#https://swdevnotes.com/python/2021/how-to-filter-a-pandas-dataframe/
+data=data.astype({'x':'str'})
+
+print(data)
+
+df=data[data.x.str.contains('52', case=False, na=False)]
+print(df)
