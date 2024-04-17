@@ -23,3 +23,30 @@ for i in range(len(Key)):
 	array_output=np.array(hf.get(Key[i]))
 	print(array_output)
 
+
+def recursively_save_dict_to_hdf5(group, dic):
+    """
+    Recursively save a nested dictionary to an HDF5 group.
+    """
+    for key, value in dic.items():
+        if isinstance(value, dict):
+            subgroup = group.create_group(key)
+            recursively_save_dict_to_hdf5(subgroup, value)
+        else:
+            group[key] = value
+
+nested_dict = {
+    'group1': {
+        'data1': 1.0,
+        'data2': 2.0
+    },
+    'group2': {
+        'subgroup': {
+            'data3': 3.0
+        },
+        'data4': 4.0
+    }
+}
+
+with h5py.File('nested_data.h5', 'w') as f:
+    recursively_save_dict_to_hdf5(f, nested_dict)

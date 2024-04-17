@@ -10,4 +10,13 @@ print(x)
 print(np.shape(x))
 
 
-np.reshape(x,(2,2,2),order='C')
+x=np.reshape(x,(2,2,2),order='C')
+
+print(x)
+print(np.shape(x))
+
+original_array=np.random.rand(3,4,5,6)
+
+flatten_array = original_array.reshape(-1, *original_array.shape[2:])
+print(flatten_array)
+print(np.shape(flatten_array))

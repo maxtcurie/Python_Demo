@@ -1,0 +1,10 @@
+plt.clf()
+plt.imshow(amp1_masked,aspect='auto',cmap='hot',\
+           extent=[time[0], time[-1], frequency[-1], frequency[0]])
+plt.colorbar()
+plt.ylabel('kHz')
+plt.xlabel('ms')
+plt.gca().invert_yaxis()
+#plt.xlim(2000,4000)
+#plt.ylim(0,100)
+plt.show()

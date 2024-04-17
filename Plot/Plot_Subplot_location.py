@@ -1,46 +1,23 @@
-import numpy as np
 import matplotlib.pyplot as plt
 
+# Create a figure
+fig = plt.figure(figsize=(10, 6))
 
-fontsize0=12
+# Create the first subplot at the top left (1, 2, 1) means 1 row, 2 cols, position 1
+ax1 = fig.add_subplot(2, 2, 1)
+ax1.set_title('Subplot 1')
+ax1.plot([0, 1], [0, 1])  # Simple plot for demonstration
 
-#subplot
-#refers to https://youtu.be/XFZRVnP-MTU
-#https://matplotlib.org/3.3.3/api/_as_gen/matplotlib.pyplot.subplot.html
-x=np.arange(0,6,0.001)
+# Create the second subplot at the top right (1, 2, 2) means 1 row, 2 cols, position 2
+ax2 = fig.add_subplot(2, 2, 2)
+ax2.set_title('Subplot 2')
+ax2.plot([0, 1], [1, 0])  # Another simple plot for demonstration
 
-fig, ax=plt.subplots(nrows=2,ncols=2,sharex=True) 
-			#nrows is the total rows
-			#ncols is the total columns
-			#sharex true means the xaxies will be shared
-(nr,nc)=np.shape(ax)
-for i in range(nr):
-    for j in range(nc):
-        if 1==0:#if i!=1:
-            ax[i,j].set_xticklabels([])
-        if j!=0:
-            ax[i,j].set_yticklabels([])
+# Create the third subplot that spans the bottom row
+# (2, 1, 3) means 2 rows, 1 col, position 3, but it starts counting in row-major order
+ax3 = fig.add_subplot(2, 1, 2)
+ax3.set_title('Subplot 3')
+ax3.plot([1, 0], [0, 1])  # Yet another simple plot
 
-
-ax[0,0].plot(x,np.sin(x),label='sin(x)')
-#ax[0,0].set_xlabel('x')
-ax[0,0].set_ylabel('sin(x)',fontsize=fontsize0)
-#ax1.set_title()		#for the set the title name
-ax[0,1].plot(x,np.cos(x),label='cos(x)')
-#ax[0,1].set_xlabel('x')
-ax[0,1].set_ylabel('cos(x)',fontsize=fontsize0)
-ax[1,0].plot(x,np.sin(x)**2.,label='sin(x)^2')
-ax[1,0].set_xlabel('x',fontsize=fontsize0)
-ax[1,0].set_ylabel('sin(x)^2',fontsize=fontsize0)
-ax[1,1].plot(x,np.cos(x)**2.,label='cos(x)^2')
-ax[1,1].set_xlabel('x',fontsize=fontsize0)
-ax[1,1].set_ylabel('cos(x)^2',fontsize=fontsize0)
-ax[1,1].set_xlim([0, 5])
-#for i in range(2):
-#	for j in range(2):
-#		ax[i,j].legend()
-
-#for no space between plots: https://stackoverflow.com/questions/20057260/how-to-remove-gaps-between-subplots-in-matplotlib/45487279
-plt.subplots_adjust(wspace=0, hspace=0)
-
-plt.show()
+plt.tight_layout()  # Adjust subplots to fit into the figure area.
+plt.show()  # Display the plots

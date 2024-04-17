@@ -24,4 +24,16 @@ df3 = df1.merge(df2, how='inner',on='value') #how is similar to SQL
 print(df3)
 
 
+t1=np.linspace(0,1,100)
+t2=np.linspace(0,1,1000)
+
+df1 = pd.DataFrame({'time': t1,
+                    'value': 2*t1})
+df2 = pd.DataFrame({'time': t2,
+                    'value': 4*t2})
+
+df3=pd.merge_asof(df1,df2,on='time')
+print(df3)
+
+
 

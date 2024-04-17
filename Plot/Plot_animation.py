@@ -23,4 +23,8 @@ image_list = []
 for i in range(10):
     image_list.append(imageio.imread(image_path+str(i)+'.png'))
 
-imageio.mimwrite(image_path+'animated_from_images.gif', image_list)
+#duration=0.25
+#loop=0 infinite loop, loop=1 just play once
+imageio.mimwrite(image_path+'animated_from_images.gif', image_list, loop=0, format='gif', duration=0.25)
+
+
