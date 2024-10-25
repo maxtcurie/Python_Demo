@@ -15,7 +15,7 @@ fig, ax = plt.subplots()
 ax.plot([0, 10],[0, 10])
 
 #add rectangle to plot
-ax.add_patch(Rectangle(bottom_left_coord, width,height, linewidth=1, edgecolor='r', facecolor='none'))
+ax.add_patch(Rectangle(bottom_left_coord, width,height, linewidth=1, edgecolor='r', facecolor='green',alpha=0.2))
 
 #display plot
 plt.show()
